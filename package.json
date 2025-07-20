@@ -1,0 +1,28 @@
+{
+  "name": "sharks",
+  "version": "1.0.0",
+  "description": "my second first project",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elcapitan-g/shark.git"
+  },
+  "author": "Gerald Newell",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/elcapitan-g/shark/issues"
+  },
+  "homepage": "https://github.com/elcapitan-g/shark#readme",
+  "dependencies": {
+    "dotenv": "^17.2.0",
+    "express": "^5.1.0",
+    "mongodb": "^6.17.0",
+    "swagger": "^0.7.5",
+    "swagger-autogen": "^2.23.7",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1"
+  }
+}
