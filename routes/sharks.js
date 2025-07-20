@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const sharkController = require('../controllers/sharks');
-const validateShark = require('../middleware/validate');
+//const validateShark = require('../middleware/validate');
 
 router.get('/', sharkController.getAllSharks);
 router.get('/:id', sharkController.getSharkById);
