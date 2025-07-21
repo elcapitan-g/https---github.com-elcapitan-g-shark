@@ -5,7 +5,7 @@
     "description": "API  sharks",
     "version": "1.0.0"
   },
-  "host": "shark-swuw.onrender.com/",
+  "host": "shark-swuw.onrender.com",
   "basePath": "/",
   "schemes": ["https"],
   "paths": {
