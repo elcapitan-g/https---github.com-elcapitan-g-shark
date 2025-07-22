@@ -174,11 +174,11 @@
                   "type": "string",
                   "enum": ["Pacific", "Atlantic", "Indian", "Arctic", "Southern"]
                 },
-                "attack_count": {
+                "num_attacks": {
                   "type": "number"
                 }
               },
-              "required": ["ocean", "attack_count"]
+              "required": ["ocean", "num_attacks"]
             }
           }
         ],
@@ -211,11 +211,11 @@
                   "type": "string",
                   "enum": ["Pacific", "Atlantic", "Indian", "Arctic", "Southern"]
                 },
-                "attack_count": {
+                "num_attacks": {
                   "type": "number"
                 }
               },
-              "required": ["ocean", "attack_count"]
+              "required": ["ocean", "num_attacks"]
             }
           }
         ],
