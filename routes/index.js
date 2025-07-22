@@ -8,5 +8,6 @@ router.get('/', (req, res) => {
 });
 
 router.use('/sharks', require('./sharks'));
+router.use('/attacks', require('./attacks'));
 
 module.exports = router;

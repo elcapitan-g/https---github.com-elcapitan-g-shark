@@ -149,3 +149,105 @@
     }
   }
 }
+"/attacks": {
+  "get": {
+    "tags": ["Attacks"],
+    "description": "Get all shark attacks by ocean",
+    "produces": ["application/json"],
+    "responses": {
+      "200": {
+        "description": "List of shark attacks per ocean"
+      }
+    }
+  },
+  "post": {
+    "tags": ["Attacks"],
+    "description": "Create a new shark attack record",
+    "consumes": ["application/json"],
+    "parameters": [
+      {
+        "name": "attack",
+        "in": "body",
+        "required": true,
+        "schema": {
+          "type": "object",
+          "properties": {
+            "ocean": {
+              "type": "string",
+              "enum": ["Pacific", "Atlantic", "Indian", "Arctic", "Southern"]
+            },
+            "attack_count": {
+              "type": "number"
+            }
+          },
+          "required": ["ocean", "attack_count"]
+        }
+      }
+    ],
+    "responses": {
+      "201": {
+        "description": "Shark attack record created successfully"
+      }
+    }
+  }
+},
+"/attacks/{id}": {
+  "put": {
+    "tags": ["Attacks"],
+    "description": "Update shark attack record by ID",
+    "parameters": [
+      {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      },
+      {
+        "name": "attack",
+        "in": "body",
+        "required": true,
+        "schema": {
+          "type": "object",
+          "properties": {
+            "ocean": {
+              "type": "string",
+              "enum": ["Pacific", "Atlantic", "Indian", "Arctic", "Southern"]
+            },
+            "attack_count": {
+              "type": "number"
+            }
+          },
+          "required": ["ocean", "attack_count"]
+        }
+      }
+    ],
+    "responses": {
+      "200": {
+        "description": "Shark attack record updated successfully"
+      },
+      "404": {
+        "description": "Record not found"
+      }
+    }
+  },
+  "delete": {
+    "tags": ["Attacks"],
+    "description": "Delete shark attack record by ID",
+    "parameters": [
+      {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "type": "string"
+      }
+    ],
+    "responses": {
+      "200": {
+        "description": "Shark attack record deleted successfully"
+      },
+      "404": {
+        "description": "Record not found"
+      }
+    }
+  }
+}
