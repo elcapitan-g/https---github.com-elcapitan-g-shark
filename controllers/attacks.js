@@ -3,7 +3,7 @@ const ObjectId = require('mongodb').ObjectId;
 
 // Get all attacks
 const getAll = async (req, res) => {
-  const result = await mongodb.getDatabase().collection('attacks').find();
+  const result = await mongodb.getDatabase().db().collection('attacks').find();
   const attacks = await result.toArray();
   res.status(200).json(attacks);
 };
@@ -11,7 +11,7 @@ const getAll = async (req, res) => {
 // Get attack by ID
 const getSingle = async (req, res) => {
   const attackId = new ObjectId(req.params.id);
-  const result = await mongodb.getDatabase().collection('attacks').findOne({ _id: attackId });
+  const result = await mongodb.getDatabase().db().collection('attacks').findOne({ _id: attackId });
   if (!result) {
     return res.status(404).json({ message: 'Attack record not found' });
   }
@@ -25,7 +25,7 @@ const createAttack = async (req, res) => {
     num_attacks: req.body.num_attacks
   };
 
-  const response = await mongodb.getDatabase().collection('attacks').insertOne(attack);
+  const response = await mongodb.getDatabase().db().collection('attacks').insertOne(attack);
   if (response.acknowledged) {
     res.status(201).json(response);
   } else {
@@ -41,7 +41,7 @@ const updateAttack = async (req, res) => {
     num_attacks: req.body.num_attacks
   };
 
-  const response = await mongodb.getDatabase().collection('attacks').replaceOne({ _id: attackId }, attack);
+  const response = await mongodb.getDatabase().db().collection('attacks').replaceOne({ _id: attackId }, attack);
   if (response.modifiedCount > 0) {
     res.status(200).send();
   } else {
@@ -52,7 +52,7 @@ const updateAttack = async (req, res) => {
 // Delete an attack record
 const deleteAttack = async (req, res) => {
   const attackId = new ObjectId(req.params.id);
-  const response = await mongodb.getDatabase().collection('attacks').deleteOne({ _id: attackId });
+  const response = await mongodb.getDatabase().db().collection('attacks').deleteOne({ _id: attackId });
   if (response.deletedCount > 0) {
     res.status(200).send();
   } else {
