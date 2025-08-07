@@ -3,6 +3,8 @@ const router = express.Router();
 const attacksController = require('../controllers/attacks');
 const validateAttack = require('../middleware/validateAttack');
 
+const { isAuthenticated } = require("../middleware/authenticate");
+
 router.get('/', attacksController.getAll);
 router.get('/:id', attacksController.getSingle);
 router.post('/', validateAttack, attacksController.createAttack);
