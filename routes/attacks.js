@@ -7,8 +7,9 @@ const { isAuthenticated } = require("../middleware/authenticate");
 
 router.get('/', attacksController.getAll);
 router.get('/:id', attacksController.getSingle);
-router.post('/', validateAttack, attacksController.createAttack);
-router.put('/:id', validateAttack, attacksController.updateAttack);
-router.delete('/:id', attacksController.deleteAttack);
+
+router.post('/', isAuthenticated, validateAttack, attacksController.createAttack);
+router.put('/:id', isAuthenticated,  validateAttack, attacksController.updateAttack);
+router.delete('/:id', isAuthenticated, attacksController.deleteAttack);
 
 module.exports = router;
