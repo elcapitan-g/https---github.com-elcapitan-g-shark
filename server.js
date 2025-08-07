@@ -65,6 +65,7 @@ app.get('/auth/github', passport.authenticate('github', { scope: ['user:email'] 
 app.get('/auth/github/callback',
   passport.authenticate('github', { failureRedirect: '/' }),
   (req, res) => {
+     req.session.user = req.user; 
     res.redirect('/');
   }
 );
