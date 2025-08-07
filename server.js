@@ -15,7 +15,7 @@ app.use(bodyParser.json());
 app.use(session({
   secret: "secret",
   resave: false ,
-  saceUninitialized: true ,
+  saveUninitialized: true ,
 }))
 // basic express sesh initi
 .use(passport.initialize())
@@ -50,7 +50,7 @@ function(accessToken, refreshToken, profile, done){
 passport.serializeUser((user, done) => {
   done(null, user);
 });
-passport.deserializeUser((iser, done) => {
+passport.deserializeUser((user, done) => {
   done(null, user);
 });
 
